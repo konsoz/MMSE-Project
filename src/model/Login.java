@@ -1,4 +1,4 @@
-package system;
+package model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class Login {
 		users = new ArrayList<>();
 		
 		users.add(new User("cs","123","cs"));
-		
+		users.add(new User("scs","123","scs"));
 	}
 	
 	public User login(String username,String password) {
