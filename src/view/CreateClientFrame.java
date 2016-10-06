@@ -68,6 +68,7 @@ public class CreateClientFrame extends JFrame {
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(true);
+		createClientAction();
 	}
 	
 	public void createClientAction(){

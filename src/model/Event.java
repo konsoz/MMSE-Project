@@ -5,16 +5,16 @@ public class Event {
 	private  String dateTo;
 	private  String description;
 	private  String name;
-	private final int clientId;
+	private final Client client;
 	private final int id;
 	private double budget;
 	
-	public Event(String dateFrom,String dateTo, String description, String name, int clientId, int id, double budget){
+	public Event(String dateFrom,String dateTo, String description, String name, Client client, int id, double budget){
 		this.setDateFrom(dateFrom);
 		this.setDateTo(dateTo);
 		this.setDescription(description);
 		this.setName(name);
-		this.clientId = clientId;
+		this.client = client;
 		this.id = id;
 		this.setBudget(budget);
 	}
@@ -51,8 +51,8 @@ public class Event {
 		this.name = name;
 	}
 
-	public int getClientId() {
-		return clientId;
+	public Client getClient() {
+		return client;
 	}
 
 	public int getId() {
