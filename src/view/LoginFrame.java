@@ -38,10 +38,10 @@ public class LoginFrame extends JFrame {
 		getContentPane().add(panel);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
-		actionlogin(controller);
+		actionlogin(controller,this);
 	}
 
-	public void actionlogin(Controller controller) {
+	public void actionlogin(Controller controller, LoginFrame login) {
 		blogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				String username = txuser.getText();
@@ -50,9 +50,10 @@ public class LoginFrame extends JFrame {
 				User currentUser = controller.login(username,password);
 				
 				if (currentUser != null) {
-					MainFrame regFace = new MainFrame(currentUser,controller);
+					MainFrame regFace = new MainFrame(currentUser,controller, login);
+					login.setVisible(false);
 					regFace.setVisible(true);
-					dispose();
+					
 				} else {
 
 					JOptionPane.showMessageDialog(null, "Wrong Password / Username");

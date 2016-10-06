@@ -8,6 +8,7 @@ public class Event {
 	private final Client client;
 	private final int id;
 	private double budget;
+	private Status status;
 	
 	public Event(String dateFrom,String dateTo, String description, String name, Client client, int id, double budget){
 		this.setDateFrom(dateFrom);
@@ -17,6 +18,12 @@ public class Event {
 		this.client = client;
 		this.id = id;
 		this.setBudget(budget);
+		this.status = Status.Created;
+	}
+
+	@Override
+	public String toString() {
+		return "Event [name=" + name + ", budget=" + budget + "]";
 	}
 
 	public String getDateFrom() {
@@ -65,6 +72,14 @@ public class Event {
 
 	public void setBudget(double budget) {
 		this.budget = budget;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 	
 }

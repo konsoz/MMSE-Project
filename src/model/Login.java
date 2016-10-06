@@ -11,8 +11,10 @@ public class Login {
 		
 		users = new ArrayList<>();
 		
-		users.add(new User("cs","123","cs"));
-		users.add(new User("scs","123","scs"));
+		users.add(new User("cs","123",Role.CustomerService));
+		users.add(new User("scs","123",Role.SeniorCustomerService));
+		users.add(new User("fm","123",Role.FinancialManager));
+		users.add(new User("am","123",Role.AdministrationManager));
 	}
 	
 	public User login(String username,String password) {

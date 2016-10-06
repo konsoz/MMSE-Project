@@ -3,9 +3,9 @@ package model;
 public class User {
 	private final String username;
 	private final String password;
-	private final String role;
+	private final Role role;
 	
-	public User(String username,String password,String role){
+	public User(String username,String password,Role role){
 		this.username = username;
 		this.password = password;
 		this.role = role;
@@ -19,7 +19,7 @@ public class User {
 		return password;
 	}
 
-	public String getRole() {
+	public Role getRole() {
 		return role;
 	}
 	
