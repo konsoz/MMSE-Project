@@ -20,6 +20,9 @@ public class MainFrame extends JFrame {
 	JButton createClientButton = new JButton("Create client");
 	JButton listEventsButton = new JButton("List events");
 	private final JButton btnLogout = new JButton("Logout");
+	private final JButton btnListClients = new JButton("List Clients");
+	private final JButton btnCreateTask = new JButton("Create Task");
+	private final JButton btnListTasks = new JButton("List Tasks");
 	
 	public MainFrame(User currentUser, Controller controller, LoginFrame login) {
 		super("Welcome to SEP System");
@@ -49,15 +52,43 @@ public class MainFrame extends JFrame {
 		btnLogout.setBounds(450, 314, 117, 25);
 		
 		panel.add(btnLogout);
+		btnListClients.setBounds(12, 169, 157, 25);
+		
+		panel.add(btnListClients);
+		btnCreateTask.setBounds(12, 213, 150, 25);
+		
+		panel.add(btnCreateTask);
+		btnListTasks.setBounds(12, 250, 150, 25);
+		
+		panel.add(btnListTasks);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 		
 		createEventAction();
 		createClientAction();
 		listEventsAction();
+		listClientsAction();
+		createTaskAction();
+		listTasksAction();
 		logoutAction();
 	}
 	
+	public void createTaskAction(){
+		btnCreateTask.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CreateTaskFrame frame = new CreateTaskFrame(controller,user);
+			}
+		});
+	}
+	
+	public void listClientsAction(){
+		btnListClients.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ClientListFrame frame = new ClientListFrame(controller);
+			}
+		});
+	}
+
 	public void createEventAction(){
 		createEventButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -78,6 +109,14 @@ public class MainFrame extends JFrame {
 		listEventsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ListAndUpdateFrame frame = new ListAndUpdateFrame(controller, user);
+			}
+		});
+	}
+	
+	public void listTasksAction(){
+		btnListTasks.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ListTaskFrame frame = new ListTaskFrame(controller, user);
 			}
 		});
 	}
