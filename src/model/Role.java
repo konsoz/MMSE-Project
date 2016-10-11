@@ -6,6 +6,7 @@ public enum Role {
 	FinancialManager("Financial Manager"),
 	AdministrationManager("Administration Manager"),
 	ServiceManager("Service Manager"),
+	HR("HR"),
 	ProductionManager("Production Manager"),
 	Photography("Photography Subteam"),
 	Music("Music Subteam"),

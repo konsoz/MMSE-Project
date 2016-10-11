@@ -17,6 +17,8 @@ public class Login {
 		users.add(new User("am","123",Role.AdministrationManager));
 		users.add(new User("sm","123",Role.ServiceManager));
 		users.add(new User("pm","123",Role.ProductionManager));
+		users.add(new User("hr","123",Role.HR));
+		
 		
 		users.add(new User("photo","123",Role.Photography));
 		users.add(new User("music","123",Role.Music));

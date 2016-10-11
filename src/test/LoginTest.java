@@ -13,6 +13,7 @@ public class LoginTest {
 	@Test
 	public void checkRole(){
 		Login login = new Login();
+		
 		User user = new User("cs","123",Role.CustomerService);
 		
 		User loginUser = login.login(user.getUsername(), user.getPassword());

@@ -165,7 +165,11 @@ public class ListTaskFrame extends JFrame {
 	public void updateEventAction(){
 		updateButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Update status
+				double additionalBudget = Double.valueOf(additionalBudgetField.getText());
+				String expectedPlan = expectedPlanField.getText();
+				Task task = (Task) tasksList.getSelectedValue();
+				controller.updateTask(additionalBudget, expectedPlan, task);
+				
 			}
 		});
 	}

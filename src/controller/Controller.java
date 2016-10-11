@@ -1,12 +1,15 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import model.Client;
 import model.Event;
 import model.Login;
+import model.ResourceReq;
 import model.Role;
+import model.StaffReq;
 import model.Status;
 import model.Task;
 import model.Team;
@@ -16,12 +19,19 @@ public class Controller {
 
 	
 	private Login login;
+	
 	private int clientIdCounter;
 	private int eventIdCounter;
 	private int taskIdCounter;
+	private int staffreqCounter;
+	private int resourcereqCounter;
+	
 	private List<Client> clients;
 	private List<Event> events;
 	private List<Task> tasks;
+	private List<StaffReq> staffrequests;
+	private List<ResourceReq> resourcereq;
+	
 	private Team music;
 	private Team photography;
 	private Team chefs;
@@ -33,6 +43,8 @@ public class Controller {
 		clients = new ArrayList<>();
 		events = new ArrayList<>();
 		tasks = new ArrayList<>();
+		staffrequests = new ArrayList<>();
+		resourcereq = new ArrayList<>();
 		
 		initTeams();
 		
@@ -47,6 +59,12 @@ public class Controller {
 								name, client, eventIdCounter, budget);
 		events.add(event);
 		eventIdCounter++;
+	}
+	
+	public void createResourceRequest(Event event, String description, String resources, User manager){
+		ResourceReq req = new ResourceReq(event, description, resources, manager, resourcereqCounter);
+		resourcereq.add(req);
+		resourcereqCounter++;
 	}
 	
 	public List<Event> getEventsWithClient(Client client){
@@ -137,9 +155,60 @@ public class Controller {
 			}
 		}
 	}
+	
+	public void updateTask(double additionalBudget,String expectedPlan,Task task){
+		for (Task t : tasks) {
+			if(t.getId() == task.getId()) {
+				t.setExpectedPlan(expectedPlan);
+				t.setAdditionalBudget(additionalBudget);
+			}
+		}
+	}
+	
+	public void updateEvent(double newBudget, Event event) {
+		for(Event e : events) {
+			if(e.getId() == event.getId()) {
+				e.setBudget(newBudget);
+			}
+		}
+	}
+	
+	public void deleteEvent(Event event) {
+		for(Iterator<Event> iter = events.listIterator(); iter.hasNext();) {
+			Event e = iter.next();
+			if(e.getId() == event.getId()) iter.remove();
+		}
+	}
+	
+	public void createStaffReq(Event event, Team team, String description){
+		staffrequests.add(new StaffReq(event, team, description, staffreqCounter));
+		staffreqCounter++;
+	}
+	
+	public List<StaffReq> getStaffReq(){
+		return staffrequests;
+	}
+	
+	public List<ResourceReq> getResourceReq(){
+		return resourcereq;
+	}
 
 	public List<Task> getTasks() {
 		return tasks;
+	}
+
+	public void deleteStaffReq(StaffReq req) {
+		for(Iterator<StaffReq> iter = staffrequests.listIterator(); iter.hasNext();) {
+			StaffReq r = iter.next();
+			if(r.getId() == req.getId()) iter.remove();
+		}
+	}
+	
+	public void deleteResourceReq(ResourceReq req) {
+		for(Iterator<ResourceReq> iter = resourcereq.listIterator(); iter.hasNext();) {
+			ResourceReq r = iter.next();
+			if(r.getId() == req.getId()) iter.remove();
+		}
 	}
 	
 }

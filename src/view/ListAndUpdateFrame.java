@@ -21,6 +21,7 @@ import model.Client;
 import model.Event;
 import model.Role;
 import model.Status;
+import model.Task;
 import model.User;
 
 import javax.swing.SwingConstants;
@@ -193,6 +194,7 @@ public class ListAndUpdateFrame extends JFrame {
 				if(currentUser.getRole() == Role.FinancialManager && event.getStatus() == Status.AcceptedBySCS){
 					acceptButton.setVisible(true);
 					rejectButton.setVisible(true);
+					updateButton.setVisible(true);
 				}
 				
 				if(currentUser.getRole() == Role.AdministrationManager && event.getStatus() == Status.AcceptedByFM) {
@@ -219,7 +221,9 @@ public class ListAndUpdateFrame extends JFrame {
 	public void updateEventAction(){
 		updateButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Update status
+				double newBudget = Double.valueOf(budget.getText());
+				Event event = (Event) eventList.getSelectedValue();
+				controller.updateEvent(newBudget, event);
 			}
 		});
 	}
@@ -227,7 +231,8 @@ public class ListAndUpdateFrame extends JFrame {
 	public void rejectEventAction(){
 		rejectButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Update status
+				Event event = (Event) eventList.getSelectedValue();
+				controller.deleteEvent(event);
 			}
 		});
 	}

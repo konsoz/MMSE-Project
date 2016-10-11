@@ -58,7 +58,38 @@ public class EventTest {
 		controller.changeStatus(0, am);
 		
 		Assert.assertEquals(Status.AcceptedByAM, event.getStatus());
+	}
+	
+	@Test
+	public void updateEvent() {
+		Controller controller = new Controller();
+
+		controller.createClient("Peter", "Peter@gmail.com", "07600000");
+
+		Client client = controller.getClients().get(0);
+
+		controller.createEvent("dateFrom", "dateTo", "description", "funny party", client, 1000);
+
+		Event event = controller.getEvents().get(0);
 		
+		controller.updateEvent(55, event);
 		
+		Assert.assertEquals(55, event.getBudget(), 0);
+	}
+	
+	@Test
+	public void deleteTest() {
+		Controller controller = new Controller();
+
+		controller.createClient("Peter", "Peter@gmail.com", "07600000");
+
+		Client client = controller.getClients().get(0);
+
+		controller.createEvent("dateFrom", "dateTo", "description", "funny party", client, 1000);
+
+		Event event = controller.getEvents().get(0);
+		controller.deleteEvent(event);
+		
+		Assert.assertEquals(0, controller.getEvents().size());
 	}
 }
