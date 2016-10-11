@@ -17,8 +17,9 @@ public class LoginFrame extends JFrame {
 	JPanel panel = new JPanel();
 	JTextField txuser = new JTextField(15);
 	JPasswordField pass = new JPasswordField(15);
-
-	LoginFrame() {
+	MainFrame regFace;
+	
+	public LoginFrame() {
 		super("Login Autentification");
 		setSize(300, 200);
 		setLocation(500, 280);
@@ -50,7 +51,7 @@ public class LoginFrame extends JFrame {
 				User currentUser = controller.login(username,password);
 				
 				if (currentUser != null) {
-					MainFrame regFace = new MainFrame(currentUser,controller, login);
+					regFace = new MainFrame(currentUser,controller, login);
 					login.setVisible(false);
 					regFace.setVisible(true);
 					
@@ -64,5 +65,21 @@ public class LoginFrame extends JFrame {
 
 			}
 		});
+	}
+	
+	public JButton getLoginButton(){
+		return blogin;
+	}
+	
+	public JTextField getUserField(){
+		return txuser;
+	}
+	
+	public JPasswordField getPassField(){
+		return pass;
+	}
+	
+	public MainFrame getMainFrame(){
+		return regFace;
 	}
 }

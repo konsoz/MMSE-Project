@@ -48,8 +48,8 @@ public class Controller {
 		
 		initTeams();
 		
-		clients.add(new Client("Peter", "peter@gmail", "123", 0));
-		events.add(new Event("6 oct 2016", "7 oct 2016", "Party time", "Crazy praty 3000", clients.get(0), 0, 1000));
+		//clients.add(new Client("Peter", "peter@gmail", "123", 0));
+		//events.add(new Event("6 oct 2016", "7 oct 2016", "Party time", "Crazy praty 3000", clients.get(0), 0, 1000));
 		
 		
 	}

@@ -16,6 +16,16 @@ public class MainFrame extends JFrame {
 	private final LoginFrame loginFrame;
 	
 	JPanel panel = new JPanel();
+	ClientListFrame listClientsFrame;
+	
+	public ClientListFrame getListClientsFrame() {
+		return listClientsFrame;
+	}
+
+	public void setListClientsFrame(ClientListFrame listClientsFrame) {
+		this.listClientsFrame = listClientsFrame;
+	}
+
 	JButton createEventButton = new JButton("Create event");
 	JButton createClientButton = new JButton("Create client");
 	JButton listEventsButton = new JButton("List events");
@@ -25,6 +35,10 @@ public class MainFrame extends JFrame {
 	private final JButton btnListClients = new JButton("List Clients");
 	private final JButton btnCreateTask = new JButton("Create Task");
 	private final JButton btnListTasks = new JButton("List Tasks");
+	public JButton getBtnListClients() {
+		return btnListClients;
+	}
+
 	JButton btnCreateResourceRequest = new JButton("Create Resource Request");
 	JButton btnListResourceRequest = new JButton("List Resource Request");
 	
@@ -192,7 +206,7 @@ public class MainFrame extends JFrame {
 	public void listClientsAction(){
 		btnListClients.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ClientListFrame frame = new ClientListFrame(controller);
+				listClientsFrame = new ClientListFrame(controller);
 			}
 		});
 	}

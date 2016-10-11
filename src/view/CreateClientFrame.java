@@ -20,7 +20,7 @@ public class CreateClientFrame extends JFrame {
 	private JTextField clientPhone;
 	private JLabel lblDateTo;
 	JButton btnNewButton = new JButton("Submit");
-
+	
 
 	public CreateClientFrame(Controller controller) {
 		super("SEP System");
@@ -82,5 +82,49 @@ public class CreateClientFrame extends JFrame {
 				controller.createClient(name,email,phone);
 			}
 		});
+	}
+	
+	public JButton getSubmitBtn(){
+		return btnNewButton;
+	}
+
+	public JTextField getClientName() {
+		return clientName;
+	}
+
+	public void setClientName(String clientName) {
+		this.clientName.setText(clientName);
+	}
+
+	public JTextField getClientEmail() {
+		return clientEmail;
+	}
+
+	public void setClientEmail(String clientEmail) {
+		this.clientEmail.setText(clientEmail);
+	}
+
+	public JLabel getLblDate() {
+		return lblDate;
+	}
+
+	public void setLblDate(JLabel lblDate) {
+		this.lblDate = lblDate;
+	}
+
+	public JTextField getClientPhone() {
+		return clientPhone;
+	}
+
+	public void setClientPhone(String clientPhone) {
+		this.clientPhone.setText(clientPhone);
+	}
+
+	public JLabel getLblDateTo() {
+		return lblDateTo;
+	}
+
+	public void setLblDateTo(JLabel lblDateTo) {
+		this.lblDateTo = lblDateTo;
 	}
 }

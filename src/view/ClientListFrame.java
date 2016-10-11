@@ -39,6 +39,23 @@ public class ClientListFrame extends JFrame {
 	private JTextField clientEmailField;
 	private JLabel lblDateTo;
 	private JList eventList;
+	
+	public JTextField getClientNameField() {
+		return clientNameField;
+	}
+
+	public void setClientNameField(JTextField clientNameField) {
+		this.clientNameField = clientNameField;
+	}
+
+	public JList getEventList() {
+		return eventList;
+	}
+
+	public void setEventList(JList eventList) {
+		this.eventList = eventList;
+	}
+
 	private int currentEventId;
 
 
